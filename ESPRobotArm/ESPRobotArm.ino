@@ -38,7 +38,7 @@ void loop() {
       if (pos1 >= 0 && pos1 <= 180 && pos2 >= 0 && pos2 <= 180 && pos3 >= 0 && pos3 <= 180) {
         targetPos1 = pos1; 
         targetPos2 = pos2; 
-        targetPos3 = pos3; // Update target position for servo3
+        targetPos3 = pos3;
       } else {
         Serial.println("Invalid input. Please enter values between 0 and 180.");
       }
