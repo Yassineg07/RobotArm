@@ -101,7 +101,7 @@ This explanation should help users understand the structure and functionality of
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Yassineg07/RobotArm
    ```
 2. Open `RobotArm.pro` in Qt Creator.
 3. Build and run the project.
