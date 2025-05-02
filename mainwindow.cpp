@@ -7,12 +7,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Connect sliders to their respective slots
+    ui->verticalSlider_1->setRange(0, 180);
+    ui->verticalSlider_2->setRange(0, 180);
+    ui->verticalSlider_3->setRange(0, 180);
+
     connect(ui->verticalSlider_1, &QSlider::valueChanged, this, &MainWindow::onSlider1ValueChanged);
     connect(ui->verticalSlider_2, &QSlider::valueChanged, this, &MainWindow::onSlider2ValueChanged);
     connect(ui->verticalSlider_3, &QSlider::valueChanged, this, &MainWindow::onSlider3ValueChanged);
 
-    // Initialize ESP32 connection
     esp32.connect("COM5");
 }
 
@@ -21,13 +23,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//changes to slider 1's value
 void MainWindow::onSlider1ValueChanged(int value)
 {
-    Q_UNUSED(value);
-    updateDegreeLabels();
-    sendAllServoCommands();
+    Q_UNUSED(value); // Value is unused here
+    updateDegreeLabels(); // Update the labels
+    sendAllServoCommands(); // Send updated values to ESP32
 }
 
+//changes to slider 2's value
 void MainWindow::onSlider2ValueChanged(int value)
 {
     Q_UNUSED(value);
@@ -35,6 +39,7 @@ void MainWindow::onSlider2ValueChanged(int value)
     sendAllServoCommands();
 }
 
+//changes to slider 3's value
 void MainWindow::onSlider3ValueChanged(int value)
 {
     Q_UNUSED(value);
@@ -42,17 +47,17 @@ void MainWindow::onSlider3ValueChanged(int value)
     sendAllServoCommands();
 }
 
+//sends the current slider values to the ESP32
 void MainWindow::sendAllServoCommands()
 {
     int value1 = ui->verticalSlider_1->value();
     int value2 = ui->verticalSlider_2->value();
     int value3 = ui->verticalSlider_3->value();
 
-    esp32.sendServoCommand(1, value1);
-    esp32.sendServoCommand(2, value2);
-    esp32.sendServoCommand(3, value3);
+    esp32.sendServoCommand(value1, value2, value3);
 }
 
+//changes the degree labels to reflect the current slider values
 void MainWindow::updateDegreeLabels()
 {
     int value1 = ui->verticalSlider_1->value();

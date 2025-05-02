@@ -30,9 +30,9 @@ public:
     QLabel *slider_1;
     QLabel *slider_2;
     QLabel *slider_3;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
+    QLabel *degree_1;
+    QLabel *degree_2;
+    QLabel *degree_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -66,15 +66,15 @@ public:
         slider_3 = new QLabel(centralwidget);
         slider_3->setObjectName("slider_3");
         slider_3->setGeometry(QRect(210, 410, 51, 41));
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(540, 90, 49, 16));
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(380, 90, 49, 16));
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(210, 90, 49, 16));
+        degree_1 = new QLabel(centralwidget);
+        degree_1->setObjectName("degree_1");
+        degree_1->setGeometry(QRect(540, 100, 49, 16));
+        degree_2 = new QLabel(centralwidget);
+        degree_2->setObjectName("degree_2");
+        degree_2->setGeometry(QRect(380, 100, 49, 16));
+        degree_3 = new QLabel(centralwidget);
+        degree_3->setObjectName("degree_3");
+        degree_3->setGeometry(QRect(210, 100, 49, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -95,9 +95,9 @@ public:
         slider_1->setText(QCoreApplication::translate("MainWindow", "slider 1", nullptr));
         slider_2->setText(QCoreApplication::translate("MainWindow", "slider 2", nullptr));
         slider_3->setText(QCoreApplication::translate("MainWindow", "slider 3", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
+        degree_1->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
+        degree_2->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
+        degree_3->setText(QCoreApplication::translate("MainWindow", "0 Degree", nullptr));
     } // retranslateUi
 
 };

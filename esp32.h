@@ -11,7 +11,8 @@ public:
     ~ESP32();
 
     bool connect(const QString &portName);
-    void sendServoCommand(int servoId, int angle);
+
+    void sendServoCommand(int angle1, int angle2, int angle3);
 
 private:
     QSerialPort serial;

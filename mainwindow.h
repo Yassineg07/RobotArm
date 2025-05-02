@@ -25,9 +25,11 @@ private slots:
 
 private:
     void sendAllServoCommands();
+
     void updateDegreeLabels();
 
     Ui::MainWindow *ui;
     ESP32 esp32;
 };
+
 #endif // MAINWINDOW_H

@@ -31,12 +31,14 @@ bool ESP32::connect(const QString &portName)
     return true;
 }
 
-void ESP32::sendServoCommand(int servoId, int angle)
+void ESP32::sendServoCommand(int angle1, int angle2, int angle3)
 {
     if (serial.isOpen()) {
-        QString command = QString("SERVO:%1:%2\n").arg(servoId).arg(angle);
+        QString command = QString("%1 %2 %3\n").arg(angle1).arg(angle2).arg(angle3);
         serial.write(command.toUtf8());
         serial.flush();
+
+        qDebug() << "Sent values to ESP32:" << angle1 << angle2 << angle3;
     } else {
         qDebug() << "Serial port not open. Cannot send command.";
     }
